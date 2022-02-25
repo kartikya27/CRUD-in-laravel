@@ -83,6 +83,7 @@
                             if (result == 'found') {
                                 $('#error_email').html(
                                     '<label class="text-success">Img Found</label>'
+                                    $('#email').addClass('is-valid');
                                 );
                                 
                             } else {
