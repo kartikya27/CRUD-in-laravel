@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\PasswordReset;
 use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
@@ -18,14 +19,29 @@ class LoginController extends Controller
         $dataResult->username =  $req->email;
         $dataResult->password =  Hash::make($req->password);
         $dataResult->remember_token =  $req->_token;
-        
-        // $dataResult->name = $req->name;
-        return $dataResult->save();
+        $dataResult->save();
+
+        $passwordOTP = new PasswordReset;
+        $passwordOTP->otp = rand(11111,99999);
+        $passwordOTP->email = $dataResult->email;
+        $passwordOTP->token = $dataResult->remember_token;
+        return $passwordOTP->save();
+
     }
 
-    function login()
+    function login(Request $req)
     {
-        echo"Helo";
+        $userEmail = User::where(['email'=>$req->email])->first();
+        if(!$userEmail || !Hash::check($req->password,$userEmail->password))
+        {
+            return false;
+        }else
+        {
+            // return true;
+            $req->session()->put('user',$userEmail);
+            return redirect('mail/u/'.$userEmail->id);
+
+        }
     }
     
 }

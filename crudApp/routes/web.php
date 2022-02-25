@@ -18,5 +18,23 @@ Route::get('login', function()
 {
     return view('loginForm');
 });
+Route::get('mail/u/{userID}', function($userID)
+{   
+    if(session()->has('user')){
+    return view('mail',['userID'=>$userID]);
+    }
+    else{
+        return redirect('login');
+    }
+});
+
+
+
+Route::get('logout', function()
+{   
+    Session::forget('user');
+    return redirect('login');
+});
+
 Route::post('loginSubmit',[LoginController::class,'login'])->name('LoginPageName');
 Route::post('signup',[LoginController::class,'index'])->name('signupPageName');

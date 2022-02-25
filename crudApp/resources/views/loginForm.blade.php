@@ -79,18 +79,22 @@
                             password:password
                         },
                         success: function(result) {
-                            alert(result);
+                            //alert(result);
                             if (result == 'found') {
                                 $('#error_email').html(
-                                    '<label class="text-success">Img Found</label>';
-                                    $('#email').addClass('is-valid');
+                                    '<label class="text-success">Img Found</label>'
+                                   
                                 );
+                                $('#email').removeClass('is-invalid');
+                                $('#email').addClass('is-valid');
                                 
                             } else {
                                 $('#error_email').html(
                                     '<label class="text-danger">Img not Found</label>'
-                                    $('#email').addClass('is-valid');
+                                    
                                 );
+                                $('#email').removeClass('is-invalid');
+                                $('#email').addClass('is-valid');
                                 
                             }
                         }
