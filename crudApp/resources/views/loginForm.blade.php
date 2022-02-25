@@ -43,7 +43,7 @@
                                 <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                             </div>
                             <div class="d-grid gap-2  mx-auto ">
-                                <button class="btn btn-primary me-md-2" id="loginBtn" disabled
+                                <button class="btn btn-primary me-md-2" id="loginBtn"
                                     type="submit">Login</button>
 
                             </div>
@@ -67,7 +67,7 @@
                 var _token = $('input[name="_token"]').val();
                 var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                 if (!filter.test(email)) {
-                    $('#error_email').html('<label class="text-danger">Invalid Email</label>');
+                    // $('#error_email').html('<label class="text-danger">Invalid Email</label>');
                     $('#email').addClass('is-invalid');
                 } else {
                     $.ajax({
@@ -82,12 +82,14 @@
                             alert(result);
                             if (result == 'found') {
                                 $('#error_email').html(
-                                    '<label class="text-success">Img Found</label>'
+                                    '<label class="text-success">Img Found</label>';
+                                    $('#email').addClass('is-valid');
                                 );
                                 
                             } else {
                                 $('#error_email').html(
                                     '<label class="text-danger">Img not Found</label>'
+                                    $('#email').addClass('is-valid');
                                 );
                                 
                             }
