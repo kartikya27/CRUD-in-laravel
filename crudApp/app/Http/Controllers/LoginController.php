@@ -22,5 +22,10 @@ class LoginController extends Controller
         // $dataResult->name = $req->name;
         return $dataResult->save();
     }
+
+    function login()
+    {
+        echo"Helo";
+    }
     
 }
