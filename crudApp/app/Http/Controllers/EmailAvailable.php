@@ -26,4 +26,21 @@ class EmailAvailable extends Controller
       }
      }
     }
+
+    function profileCheck(Request $request)
+    {
+        if($request->post('email'))
+        {
+         $email = $request->email;
+         $data = User::where('username', $email);    
+         if(!empty($data->username))
+         {
+          return 'found';
+         }
+         else
+         {
+           return 'img not found';
+         }
+        }
+    }
 }

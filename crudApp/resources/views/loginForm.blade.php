@@ -23,7 +23,7 @@
                 
 
                 <div class="col-md-5 " style="margin: auto;">
-                    <h1 class="text-center">Create Account</h1>
+                    <h1 class="text-center">Login Account</h1>
 
                     <div class="form-group">
                         <form action="{{route('LoginPageName')}}" method="post">
@@ -43,7 +43,7 @@
                                 <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                             </div>
                             <div class="d-grid gap-2  mx-auto ">
-                                <button class="btn btn-primary me-md-2" id="login" disabled
+                                <button class="btn btn-primary me-md-2" id="loginBtn" disabled
                                     type="submit">Login</button>
 
                             </div>
@@ -62,54 +62,37 @@
 
             $('#email').blur(function() {
                 var error_email = '';
-                var fname = $('#fname').val();
-                var lname = $('#lname').val();
                 var email = $('#email').val();
                 var password = $('#password').val();
                 var _token = $('input[name="_token"]').val();
-                var filter = /^([a-zA-Z0-9_\.\-]{3,77})+$/;
-                // alert(email);
-                // alert(_token);
+                var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                 if (!filter.test(email)) {
-                    // $('#error_email').html('<label class="text-danger">Invalid Email</label>');
+                    $('#error_email').html('<label class="text-danger">Invalid Email</label>');
                     $('#email').addClass('is-invalid');
-                    $('#register').attr('disabled', 'disabled');
-                    $('.text-danger').css('display', 'none');
-
-                    // password filter
-
                 } else {
                     $.ajax({
-                        url: "email_check",
+                        url: "profile_check",
                         method: "POST",
                         data: {
                             email: email,
                             _token: _token,
-                            fname:fname,
-                            lname:lname,
                             password:password
                         },
                         success: function(result) {
-                            // alert(result);
-                            if (result == 'unique') {
+                            alert(result);
+                            if (result == 'found') {
                                 $('#error_email').html(
-                                    // '<label class="text-success">Email Available</label>'
+                                    '<label class="text-success">Img Found</label>'
                                 );
-                                $('#email').removeClass('is-invalid');
-                                $('#email').addClass('is-valid');
-                                $('#register').attr('disabled', false);
-                                $('.text-danger').css('display', 'none');
+                                
                             } else {
                                 $('#error_email').html(
-                                    '<label class="text-danger">Email not Available</label>'
+                                    '<label class="text-danger">Img not Found</label>'
                                 );
-                                $('#email').addClass('is-invalid');
-                                $('#register').attr('disabled', 'disabled');
+                                
                             }
                         }
-                        // ,error: function(XMLHttpRequest, textStatus, errorThrown) { 
-                        // alert("Error: " + errorThrown); 
-                        // }
+                        
                     })
                 }
             });
