@@ -12,7 +12,7 @@ class LoginController extends Controller
     
     function index(Request $req)
     {   
-        $dataResult = new User;
+        $dataResult = new Apiuser;
         $dataResult->name = $req->fname." ".$req->lname;
         $dataResult->email =   $req->email."@wrkva.xyz";
         $dataResult->username =  $req->email;
