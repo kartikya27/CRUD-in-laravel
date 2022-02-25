@@ -10,7 +10,7 @@
                     <h1 class="text-center">Create Account</h1>
 
                     <div class="form-group">
-                        <form action="{{route('loginPageName')}}" method="post">
+                        <form action="{{route('LoginPageName')}}" method="post">
                             {{ csrf_field() }}
                           
                             <span id="error_email"></span>
