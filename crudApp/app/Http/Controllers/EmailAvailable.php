@@ -32,8 +32,9 @@ class EmailAvailable extends Controller
         if($request->post('email'))
         {
          $email = $request->email;
-         $data = User::where('email', $email);    
-         if(!empty($data->email))
+         $data = User::where('email', $email)
+         ->count();    
+         if($data > 0)
          {
           return 'found';
          }

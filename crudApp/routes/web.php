@@ -12,7 +12,7 @@ Route::get('index', function () {
 });
 
 Route::post('email_check', [EmailAvailable::class,'check']);
-Route::post('profile_check', [EmailAvailable::class,'profileCheck']);
+Route::post('profileCheck', [EmailAvailable::class,'profileCheck']);
 
 Route::get('login', function()
 {

@@ -71,7 +71,7 @@
                     $('#email').addClass('is-invalid');
                 } else {
                     $.ajax({
-                        url: "profile_check",
+                        url: "profileCheck",
                         method: "POST",
                         data: {
                             email: email,
