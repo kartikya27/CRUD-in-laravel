@@ -32,7 +32,7 @@
                             <span id="error_email"></span>
                             <div class="input-group mb-3">
                                 <input type="text" name="email" class="form-control" id="email"
-                                    placeholder="Select Your Username" aria-label="Recipient's username"
+                                    placeholder="Enter Your Email" aria-label="Recipient's username"
                                     aria-describedby="basic-addon2">
                                
 
