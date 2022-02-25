@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Apiuser;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
@@ -12,7 +12,7 @@ class LoginController extends Controller
     
     function index(Request $req)
     {   
-        $dataResult = new Apiuser;
+        $dataResult = new User;
         $dataResult->name = $req->fname." ".$req->lname;
         $dataResult->email =   $req->email."@wrkva.xyz";
         $dataResult->username =  $req->email;
