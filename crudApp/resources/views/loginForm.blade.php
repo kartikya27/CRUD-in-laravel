@@ -43,7 +43,7 @@
                                 <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                             </div>
                             <div class="d-grid gap-2  mx-auto ">
-                                <button class="btn btn-primary me-md-2" id="loginBtn" disabled
+                                <button class="btn btn-primary me-md-2" id="loginBtn"
                                     type="submit">Login</button>
 
                             </div>
