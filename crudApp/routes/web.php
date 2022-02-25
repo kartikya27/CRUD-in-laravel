@@ -17,5 +17,5 @@ Route::get('login', function()
 {
     return view('loginForm');
 });
-Route::post('login',[LoginController::class,'login'])->name('LoginPageName');
+Route::post('loginSubmit',[LoginController::class,'login'])->name('LoginPageName');
 Route::post('signup',[LoginController::class,'index'])->name('signupPageName');
