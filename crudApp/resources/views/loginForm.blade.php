@@ -67,7 +67,7 @@
                 var _token = $('input[name="_token"]').val();
                 var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                 if (!filter.test(email)) {
-                    $('#error_email').html('<label class="text-danger">Invalid Email</label>');
+                    // $('#error_email').html('<label class="text-danger">Invalid Email</label>');
                     $('#email').addClass('is-invalid');
                 } else {
                     $.ajax({
@@ -89,6 +89,7 @@
                             } else {
                                 $('#error_email').html(
                                     '<label class="text-danger">Img not Found</label>'
+                                    $('#email').addClass('is-valid');
                                 );
                                 
                             }
