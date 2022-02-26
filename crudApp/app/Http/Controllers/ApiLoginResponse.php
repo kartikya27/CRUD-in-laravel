@@ -27,7 +27,7 @@ class ApiLoginResponse extends Controller
         }else{
             $data['Result'] = "Not Authorise to Access";
         }
-        return view('apidata',['data'=>$data]);
+        return view('apidata',['datas'=>$data]);
         // return $data;
     }
 }
