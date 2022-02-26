@@ -18,7 +18,7 @@ class UserAuth
     {
         if($request->path()=='login' && $request->session()->has('user'))
         {
-            return redirect('mail/u/'.Session::get('user')['id']);
+            return redirect('mail/u/'.Session::get('user')['id'].'inbox');
         }
 
         return $next($request);

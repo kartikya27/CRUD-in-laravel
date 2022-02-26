@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmailAvailable;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\ApiLoginResponse;
 
 Route::get('/', function () {
     return view('index');
@@ -19,7 +20,22 @@ Route::get('login', function()
 {
     return view('loginForm');
 });
-Route::get('mail/u/{userID}',[MailController::class,'inbox']);
+Route::get('mail/u/{userID}/inbox',[MailController::class,'inbox']);
+Route::get('mail/u/{userID}/sent',[MailController::class,'sent']);
+Route::get('mail/u/{userID}/trash',[MailController::class,'trash']);
+Route::get('mail/u/{userID}/delete',[MailController::class,'delete']);
+Route::post('send',[MailController::class,'sendmail']);
+
+
+
+Route::get('login/Api/Response/',function()
+{
+    $AuthToken =rand(1111,99999).csrf_token().uniqid();
+    // return redirect([ApiLoginResponse::class,'index']);
+    return redirect('Api/Response/'.$AuthToken);
+});
+
+Route::get('Api/Response/{AuthToken}',[ApiLoginResponse::class,'index']);
 
 Route::get('logout', function()
 {   

@@ -39,7 +39,7 @@ class LoginController extends Controller
         {
             // return true;
             $req->session()->put('user',$userEmail);
-            return redirect('mail/u/'.$userEmail->id);
+            return redirect('mail/u/'.$userEmail->id."/inbox");
 
         }
     }

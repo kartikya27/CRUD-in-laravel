@@ -20,7 +20,9 @@ class CreateMailsTable extends Migration
             $table->string('from');
             $table->string('to');
             $table->string('subject');
+            
             $table->longText('emailText');
+            $table->rememberToken();
             $table->integer('read')->default(0);
             $table->timestamps();
         });
