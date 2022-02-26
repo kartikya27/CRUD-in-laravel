@@ -1,5 +1,3 @@
-<?php 
+ 
 
-return $data;
-
-?>
+{{data}}
