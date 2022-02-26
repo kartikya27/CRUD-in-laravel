@@ -11,6 +11,7 @@ class ApiLoginResponse extends Controller
 {
     function index($auth)
     {   
+        header('Content-Type:application/json');
         $protectedData = [
             'key' => $auth,
             'secret' => "kartik",
