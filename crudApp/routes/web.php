@@ -28,7 +28,7 @@ Route::post('send',[MailController::class,'sendmail']);
 
 
 
-Route::get('login/Api/Response/',function()
+Route::get('/Api',function()
 {
     $AuthToken =rand(1111,99999).csrf_token().uniqid();
     // return redirect([ApiLoginResponse::class,'index']);
