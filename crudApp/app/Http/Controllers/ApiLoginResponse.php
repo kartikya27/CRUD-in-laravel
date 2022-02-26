@@ -20,7 +20,7 @@ class ApiLoginResponse extends Controller
         $secretAuth = ApiProvider::where(['scret'=>'kartik']);
         if($checkAuth && $secretAuth)
         { 
-        $data['Status'] ='true';       
+        $data['Status'] =true;       
         $data['users'] = User::all();
         $data['Result'] = "Success";
         
