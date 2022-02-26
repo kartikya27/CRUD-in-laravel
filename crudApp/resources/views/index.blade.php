@@ -32,12 +32,12 @@
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <input type="text" id="fname" name="fname" class="form-control" placeholder="First name"
-                                        aria-label="First name">
+                                    <input type="text" id="fname" name="fname" class="form-control"
+                                        placeholder="First name" aria-label="First name">
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <input type="text" id="lname" name="lname" class="form-control" placeholder="Last name"
-                                        aria-label="Last name">
+                                    <input type="text" id="lname" name="lname" class="form-control"
+                                        placeholder="Last name" aria-label="Last name">
                                 </div>
                             </div>
                             <span id="error_email"></span>
@@ -51,7 +51,8 @@
 
                             <div class="col-auto mb-3">
                                 <label for="inputPassword2" class="visually-hidden">Password</label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                                <input type="password" class="form-control" name="password" id="password"
+                                    placeholder="Password">
                             </div>
                             <div class="d-grid gap-2  mx-auto ">
                                 <button class="btn btn-primary me-md-2" id="register" disabled
@@ -96,9 +97,9 @@
                         data: {
                             email: email,
                             _token: _token,
-                            fname:fname,
-                            lname:lname,
-                            password:password
+                            fname: fname,
+                            lname: lname,
+                            password: password
                         },
                         success: function(result) {
                             // alert(result);

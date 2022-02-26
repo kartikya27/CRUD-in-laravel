@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmailAvailable;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MailController;
 
 Route::get('/', function () {
     return view('index');
@@ -18,17 +19,7 @@ Route::get('login', function()
 {
     return view('loginForm');
 });
-Route::get('mail/u/{userID}', function($userID)
-{   
-    if(session()->has('user')){
-    return view('mail',['userID'=>$userID]);
-    }
-    else{
-        return redirect('login');
-    }
-});
-
-
+Route::get('mail/u/{userID}',[MailController::class,'inbox']);
 
 Route::get('logout', function()
 {   

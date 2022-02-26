@@ -17,10 +17,10 @@
     </head>
 
 
-<body>
+    <body>
         <div class="container">
             <div class="row justify-content-md-center">
-                
+
 
                 <div class="col-md-5 " style="margin: auto;">
                     <h1 class="text-center">Login Account</h1>
@@ -28,23 +28,23 @@
                     <div class="form-group">
                         <form action="{{route('LoginPageName')}}" method="post">
                             {{ csrf_field() }}
-                          
+
                             <span id="error_email"></span>
                             <div class="input-group mb-3">
                                 <input type="text" name="email" class="form-control" id="email"
                                     placeholder="Enter Your Email" aria-label="Recipient's username"
                                     aria-describedby="basic-addon2">
-                               
+
 
                             </div>
 
                             <div class="col-auto mb-3">
                                 <label for="inputPassword2" class="visually-hidden">Password</label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                                <input type="password" class="form-control" name="password" id="password"
+                                    placeholder="Password">
                             </div>
                             <div class="d-grid gap-2  mx-auto ">
-                                <button class="btn btn-primary me-md-2" id="loginBtn"
-                                    type="submit">Login</button>
+                                <button class="btn btn-primary me-md-2" id="loginBtn" type="submit">Login</button>
 
                             </div>
                             <p>Don't have an account? Please <a href="index">Signup Here</a></p>
@@ -76,29 +76,29 @@
                         data: {
                             email: email,
                             _token: _token,
-                            password:password
+                            password: password
                         },
                         success: function(result) {
                             //alert(result);
                             if (result == 'found') {
                                 $('#error_email').html(
                                     '<label class="text-success">Img Found</label>'
-                                   
+
                                 );
                                 $('#email').removeClass('is-invalid');
                                 $('#email').addClass('is-valid');
-                                
+
                             } else {
                                 $('#error_email').html(
                                     '<label class="text-danger">Img not Found</label>'
-                                    
+
                                 );
                                 $('#email').removeClass('is-invalid');
                                 $('#email').addClass('is-valid');
-                                
+
                             }
                         }
-                        
+
                     })
                 }
             });
