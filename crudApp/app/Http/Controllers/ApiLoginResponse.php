@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class ApiLoginResponse extends Controller
 {
-    function index(Request $req,$Authkey,$secret)
+    function index(Request $req)
     {   
        echo $req->key;
         exit();
