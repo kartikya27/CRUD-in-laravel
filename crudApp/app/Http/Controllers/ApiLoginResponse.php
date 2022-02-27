@@ -16,7 +16,7 @@ class ApiLoginResponse extends Controller
         $checkAuth = ApiProvider::where(['key'=>$Authkey])->first();
         $secretAuth = ApiProvider::where(['scret'=>$secret]);
         // $checkAuth || Hash::make($protectedData['secret'],$checkAuth->AuthSecret);
-        if($checkAuth && $secretAuth)
+        if($checkAuth || $secretAuth)
         // if($checkAuth || Hash::make($protectedData['secret'],$checkAuth->secret))
         {
         $data['Status'] =true;       
