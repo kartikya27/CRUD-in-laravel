@@ -18,11 +18,11 @@ class ApiLoginResponse extends Controller
         header('Content-Type:application/json');
 
         
-        $checkAuth = ApiProvider::where(['key'=>$key])->first();
+    
         if($checkAuth > 0){
+        $checkAuth = ApiProvider::where(['key'=>$key])->first();
         
-        $secretAuth = ApiProvider::where(['secret'=>$authSecret])->count();
-        if($secretAuth > 0)
+        if($checkAuth || ApiProvider::where(['secret'=>$authSecret]))
         {
             $data['Status'] =true;       
             $data['users'] = User::all();
