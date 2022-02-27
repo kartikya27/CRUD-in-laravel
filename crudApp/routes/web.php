@@ -27,7 +27,7 @@ Route::get('mail/u/{userID}/delete',[MailController::class,'delete']);
 Route::post('send',[MailController::class,'sendmail']);
 
 
-Route::get('Api/Response/d?key={Authkey}&to={secret}',[ApiLoginResponse::class,'index']);
+Route::get('Api/Response/d',[ApiLoginResponse::class,'index']);
 // Route::get('Api/Response/{Authkey}/{secret}',[ApiLoginResponse::class,'index']);
 
 // Route::get('/Api/{Authkey}/{secret}',function($Authkey,$secret)
