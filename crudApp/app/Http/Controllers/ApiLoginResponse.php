@@ -11,8 +11,8 @@ class ApiLoginResponse extends Controller
 {
     function index(Request $req, $auth)
     {   
-        $AuthKey =$req->$_POST['key'];
-        $AuthSecret =$req->$_POST['secret'];
+        $AuthKey =$req->key;
+        $AuthSecret =$req->secret;
 
         header('Content-Type:application/json');
         print_r($auth);
