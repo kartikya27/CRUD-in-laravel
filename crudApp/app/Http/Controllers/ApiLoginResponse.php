@@ -17,9 +17,11 @@ class ApiLoginResponse extends Controller
          $authSecret = $secret;
         header('Content-Type:application/json');
 
+        $checkAuth = DB::table('ApiProvider')->where('key', '=', $key)
+        ->where('secret', '=', $authSecret)
+        ->get();
 
-
-        $checkAuth = ApiProvider::where(['key'=>$key] && ['secret'=>$authSecret]);
+        // $checkAuth = ApiProvider::where(['key'=>$key] && ['secret'=>$authSecret]);
         if(!empty($checkAuth))
         
         // $secretAuth = ApiProvider::where(['secret'=>$authSecret]);
