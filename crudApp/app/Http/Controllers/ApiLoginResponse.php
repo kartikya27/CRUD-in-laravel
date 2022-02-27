@@ -9,7 +9,7 @@ use App\Models\ApiProvider;
 
 class ApiLoginResponse extends Controller
 {
-    function index(Request $req,$Authkey,$secret)
+    function index($Authkey,$secret)
     {   
         header('Content-Type:application/json');
 
