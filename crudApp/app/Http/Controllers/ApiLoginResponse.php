@@ -19,7 +19,7 @@ class ApiLoginResponse extends Controller
 
         
     
-        if($checkAuth > 0){
+        
         $checkAuth = ApiProvider::where(['key'=>$key])->first();
         
         if($checkAuth || ApiProvider::where(['secret'=>$authSecret]))
@@ -31,9 +31,7 @@ class ApiLoginResponse extends Controller
         }   else{
             $data['Result'] = "Not Authorise to Access";
             }
-        }   else{
-            $data['Result'] = "Not Authorise to Access Key";
-            } 
+           
         
         return json_encode($data);
     }
