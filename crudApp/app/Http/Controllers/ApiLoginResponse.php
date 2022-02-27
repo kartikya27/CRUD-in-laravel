@@ -29,6 +29,6 @@ class ApiLoginResponse extends Controller
         }else{
             $data['Result'] = "Not Authorise to Access";
         }
-        // return json_encode($data);
+        return json_encode($data);
     }
 }
