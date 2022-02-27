@@ -35,7 +35,7 @@ Route::post('send',[MailController::class,'sendmail']);
 //     return redirect('Api/Response/'.$Auth);
 // });
 
-Route::post('Api/Response/',[ApiLoginResponse::class,'index']);
+Route::get('Api/Response/{Authkey}/{Hash::make("secret")}',[ApiLoginResponse::class,'index']);
 // New
 
 
