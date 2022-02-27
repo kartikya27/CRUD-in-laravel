@@ -12,7 +12,7 @@ class ApiLoginResponse extends Controller
     function index(Request $req)
     {   
         $Auth['key'] =$req->key;
-        $Auth['Secret'] =$req->secret;
+        $Auth['secret'] =$req->secret;
         return json_encode($Auth);
 
         exit();

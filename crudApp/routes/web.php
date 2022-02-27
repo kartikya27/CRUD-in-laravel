@@ -36,7 +36,7 @@ Route::get('/Api',function()
     return redirect('Api/Response/'.$Auth);
 });
 
-Route::get('Api/Response/',[ApiLoginResponse::class,'index']);
+Route::post('Api/Response/',[ApiLoginResponse::class,'index']);
 
 Route::get('logout', function()
 {   
