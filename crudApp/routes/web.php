@@ -29,14 +29,13 @@ Route::post('send',[MailController::class,'sendmail']);
 
 Route::get('Api/Response/{Authkey}/{secret}',[ApiLoginResponse::class,'index']);
 
-
-
-// Route::get('/Api',function()
-// {
-//     $AuthToken =rand(1111,99999).csrf_token().uniqid();
-//     // return redirect([ApiLoginResponse::class,'index']);
-//     return redirect('Api/Response/'.$AuthToken);
-// });
+Route::get('/Api/{Authkey}/{secret}',function($Authkey,$secret)
+{
+    $AuthToken =$Authkey;
+    $secret = Hash::make($secret);
+    
+    return redirect('Api/Response/'.$Authkey."/".$secret);
+});
 
 // Route::get('Api/Response/{AuthToken}',[ApiLoginResponse::class,'index']);
 
