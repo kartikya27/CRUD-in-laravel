@@ -11,11 +11,11 @@ class ApiLoginResponse extends Controller
 {
     function index(Request $req)
     {   
-        $AuthKey =$req->key;
-        $AuthSecret =$req->secret;
+        echo $AuthKey =$req->key;
+        echo $AuthSecret =$req->secret;
 
         header('Content-Type:application/json');
-        print_r($auth);
+        //print_r($auth);
 
         $protectedData = [
             'key' => $AuthKey,
