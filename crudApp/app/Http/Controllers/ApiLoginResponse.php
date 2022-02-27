@@ -22,16 +22,17 @@ class ApiLoginResponse extends Controller
         $secretAuth = Hash::check($authSecret,$checkAuth->secret);
         if($checkAuth && $secretAuth)
         {
-        $data['Status'] =true;       
-        $data['users'] = User::all();
-        $data['Result'] = "Success";
+            $data['Status'] =true;       
+            $data['users'] = User::all();
+            $data['Result'] = "Success";
         
         }else{
             $data['Result'] = "Not Authorise to Access";
         }
+           
+        }else{
+            $data['Result'] = "Not Authorise to Access Key";
+        }
         return json_encode($data);
-    }else{
-        $data['Result'] = "Not Authorise to Access Key";
-    }
     }
 }
