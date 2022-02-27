@@ -10,8 +10,10 @@ use Illuminate\Support\Facades\Hash;
 
 class ApiLoginResponse extends Controller
 {
-    function index($Authkey,$secret)
+    // function index($Authkey,$secret)
+    function index(Request $req)
     {   
+        echo $req->key = $Authkey;
         header('Content-Type:application/json');
 
         $checkAuth = ApiProvider::where(['key'=>$Authkey])->first();
