@@ -11,17 +11,16 @@ use Illuminate\Support\Facades\Hash;
 class ApiLoginResponse extends Controller
 {
     function index($Authkey,$secret)
-    // function index(Request $req)
     {   
          $key = $Authkey;
          $authSecret = $secret;
         header('Content-Type:application/json');
 
         $checkAuth = ApiProvider::where(['key'=>$key])->first();
-        // $secretAuth = ApiProvider::where(['scret'=>$secret]);
+        $secretAuth = ApiProvider::where(['scret'=>$authSecret]);
         // $checkAuth || Hash::make($protectedData['secret'],$checkAuth->AuthSecret);
-        // if($checkAuth && $secretAuth)
-        if(!$checkAuth || !Hash::check($authSecret,$checkAuth->secret))
+        if($checkAuth && $secretAuth)
+        // if(!$checkAuth || !Hash::check($authSecret,$checkAuth->secret))
         {
         $data['Status'] =true;       
         $data['users'] = User::all();
