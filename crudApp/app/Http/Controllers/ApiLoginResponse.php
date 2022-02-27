@@ -9,7 +9,7 @@ use App\Models\ApiProvider;
 
 class ApiLoginResponse extends Controller
 {
-    function index(Request $req, $auth)
+    function index(Request $req)
     {   
         $AuthKey =$req->key;
         $AuthSecret =$req->secret;
