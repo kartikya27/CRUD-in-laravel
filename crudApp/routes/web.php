@@ -28,15 +28,15 @@ Route::post('send',[MailController::class,'sendmail']);
 
 
 
-Route::get('/Api/{key}/{secret}',function($key,$secret)
+Route::get('/Api',function()
 {
-    $Auth['AuthKey'] =$key;
-    $Auth['AuthSecret'] =$secret;
+    $Auth['AuthKey'] =$_POST['key'];
+    $Auth['AuthSecret'] =$_POST['secret'];
     // return redirect([ApiLoginResponse::class,'index']);
     return redirect('Api/Response/'.$Auth);
 });
 
-Route::get('Api/Response/{AuthToken}',[ApiLoginResponse::class,'index']);
+Route::get('Api/Response/{auth}',[ApiLoginResponse::class,'index']);
 
 Route::get('logout', function()
 {   
