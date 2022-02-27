@@ -22,7 +22,7 @@ class ApiLoginResponse extends Controller
         
         $checkAuth = ApiProvider::where(['key'=>$key])->first();
         
-        if($checkAuth || ApiProvider::where(['secret'=>$authSecret]))
+        if(!$checkAuth || !ApiProvider::where(['secret'=>$authSecret]))
         {
             $data['Status'] =true;       
             $data['users'] = User::all();
