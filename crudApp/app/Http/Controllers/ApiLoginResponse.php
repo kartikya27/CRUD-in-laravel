@@ -20,7 +20,7 @@ class ApiLoginResponse extends Controller
 
         $checkAuth = DB::table('ApiProvider')
         ->where('key', $key)
-        ->where(['secret' => $authSecret]);
+        ->where(['secret', $authSecret]);
 
 
 
