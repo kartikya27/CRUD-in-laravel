@@ -28,11 +28,12 @@ Route::post('send',[MailController::class,'sendmail']);
 
 
 
-Route::get('/Api',function()
+Route::get('/Api/{key}/{secret}',function($key,$secret)
 {
-    $AuthToken =rand(1111,99999).csrf_token().uniqid();
+    $Auth['AuthKey'] =$key;
+    $Auth['AuthSecret'] =$secret;
     // return redirect([ApiLoginResponse::class,'index']);
-    return redirect('Api/Response/'.$AuthToken);
+    return redirect('Api/Response/'.$Auth);
 });
 
 Route::get('Api/Response/{AuthToken}',[ApiLoginResponse::class,'index']);
