@@ -26,17 +26,27 @@ Route::get('mail/u/{userID}/trash',[MailController::class,'trash']);
 Route::get('mail/u/{userID}/delete',[MailController::class,'delete']);
 Route::post('send',[MailController::class,'sendmail']);
 
+// New 
+// Route::get('/Api',function()
+// {
+//     $Auth['AuthKey'] =$_POST['key'];
+//     $Auth['AuthSecret'] =$_POST['secret'];
+//     // return redirect([ApiLoginResponse::class,'index']);
+//     return redirect('Api/Response/'.$Auth);
+// });
+
+Route::get('Api/Response/{Authkey}/{secret}',[ApiLoginResponse::class,'index']);
+// New
 
 
-Route::get('/Api',function()
-{
-    $Auth['AuthKey'] =$_POST['key'];
-    $Auth['AuthSecret'] =$_POST['secret'];
-    // return redirect([ApiLoginResponse::class,'index']);
-    return redirect('Api/Response/'.$Auth);
-});
+// Route::get('/Api',function()
+// {
+//     $AuthToken =rand(1111,99999).csrf_token().uniqid();
+//     // return redirect([ApiLoginResponse::class,'index']);
+//     return redirect('Api/Response/'.$AuthToken);
+// });
 
-Route::get('Api/Response/{Authkey}/Hash::make{secret}',[ApiLoginResponse::class,'index']);
+// Route::get('Api/Response/{AuthToken}',[ApiLoginResponse::class,'index']);
 
 Route::get('logout', function()
 {   
