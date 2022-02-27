@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\ApiProvider;
 use Illuminate\Support\Facades\Hash;
-use DB;
 
 class ApiLoginResponse extends Controller
 {
@@ -17,22 +16,23 @@ class ApiLoginResponse extends Controller
          $authSecret = $secret;
         header('Content-Type:application/json');
 
-        
-    
-        
         $checkAuth = ApiProvider::where(['key'=>$key])->first();
+        if(!empty($checkAuth)){
         
-        if($checkAuth && ApiProvider::where(['secret'=>$authSecret]))
+        $secretAuth = Hash::check($authSecret,$checkAuth->secret);
+        if($checkAuth && $secretAuth)
         {
             $data['Status'] =true;       
             $data['users'] = User::all();
             $data['Result'] = "Success";
         
-        }   else{
+        }else{
             $data['Result'] = "Not Authorise to Access";
-            }
+        }
            
-        
+        }else{
+            $data['Result'] = "Not Authorise to Access Key";
+        }
         return json_encode($data);
     }
 }
