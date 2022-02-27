@@ -9,19 +9,21 @@ use App\Models\ApiProvider;
 
 class ApiLoginResponse extends Controller
 {
-    function index($auth)
+    function index(Request $req, $auth)
     {   
-        $Auth['AuthKey'] =$_POST['key'];
-         $Auth['AuthSecret'] =$_POST['secret'];
+        $AuthKey =$req->$_POST['key'];
+        $AuthSecret =$req->$_POST['secret'];
+
         header('Content-Type:application/json');
         print_r($auth);
+
         $protectedData = [
-            'key' => $auth,
-            'secret' => "kartik",
+            'key' => $AuthKey,
+            'secret' => $AuthSecret,
         ];
 
-        $checkAuth = ApiProvider::where(['key'=>$auth])->first();
-        $secretAuth = ApiProvider::where(['scret'=>'kartik']);
+        $checkAuth = ApiProvider::where(['key'=>$AuthKey])->first();
+        $secretAuth = ApiProvider::where(['scret'=>$AuthSecret]);
         if($checkAuth && $secretAuth)
         { 
         $data['Status'] =true;       
