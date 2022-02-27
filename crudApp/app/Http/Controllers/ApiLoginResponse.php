@@ -12,10 +12,10 @@ class ApiLoginResponse extends Controller
 {
     function index(Request $req)
     {   
-       return $data = $req->key;
-        exit();
-         $key = $Authkey;
-         $authSecret = $secret;
+    //    return $data = $req->key;
+        // exit();
+         $key = $req->key;
+         $authSecret = $req->to;
         header('Content-Type:application/json');
 
         $checkAuth = ApiProvider::where(['key'=>$key])->first();
