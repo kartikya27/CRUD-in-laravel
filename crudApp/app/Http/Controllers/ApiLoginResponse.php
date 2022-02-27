@@ -11,11 +11,12 @@ class ApiLoginResponse extends Controller
 {
     function index(Request $req)
     {   
-        echo $AuthKey =$req->key;
-        echo $AuthSecret =$req->secret;
+        $Auth['key'] =$req->key;
+        $Auth['Secret'] =$req->secret;
+        return json_encode($Auth);
 
+        exit();
         header('Content-Type:application/json');
-        //print_r($auth);
 
         $protectedData = [
             'key' => $AuthKey,
@@ -33,7 +34,6 @@ class ApiLoginResponse extends Controller
         }else{
             $data['Result'] = "Not Authorise to Access";
         }
-        return json_encode($data);
-//         return $data;
+        // return json_encode($data);
     }
 }
