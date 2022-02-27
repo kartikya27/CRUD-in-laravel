@@ -10,8 +10,10 @@ use Illuminate\Support\Facades\Hash;
 
 class ApiLoginResponse extends Controller
 {
-    function index($Authkey,$secret)
+    function index(Request $req,$Authkey,$secret)
     {   
+        print_r($req->$_GET());
+        exit();
          $key = $Authkey;
          $authSecret = $secret;
         header('Content-Type:application/json');
