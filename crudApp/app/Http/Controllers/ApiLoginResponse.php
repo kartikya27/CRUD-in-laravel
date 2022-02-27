@@ -13,14 +13,15 @@ class ApiLoginResponse extends Controller
     function index($Authkey,$secret)
     // function index(Request $req)
     {   
-        // echo $req->key = $Authkey;
+         $key = $Authkey;
+         $authSecret = $secret;
         header('Content-Type:application/json');
 
-        $checkAuth = ApiProvider::where(['key'=>$Authkey])->first();
+        $checkAuth = ApiProvider::where(['key'=>$key])->first();
         // $secretAuth = ApiProvider::where(['scret'=>$secret]);
         // $checkAuth || Hash::make($protectedData['secret'],$checkAuth->AuthSecret);
         // if($checkAuth && $secretAuth)
-        if($checkAuth || Hash::check($secret,$checkAuth->secret))
+        if(!$checkAuth || !Hash::check($authSecret,$checkAuth->secret))
         {
         $data['Status'] =true;       
         $data['users'] = User::all();
