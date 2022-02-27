@@ -17,10 +17,10 @@ class ApiLoginResponse extends Controller
         header('Content-Type:application/json');
 
         $checkAuth = ApiProvider::where(['key'=>$key])->first();
-        // $secretAuth = ApiProvider::where(['secret'=>$authSecret]);
+        if(!empty($checkAuth)){
+        
         $secretAuth = Hash::check($authSecret,$checkAuth->secret);
         if($checkAuth && $secretAuth)
-        // if(!$checkAuth || !Hash::check($authSecret,$checkAuth->secret))
         {
         $data['Status'] =true;       
         $data['users'] = User::all();
@@ -30,5 +30,8 @@ class ApiLoginResponse extends Controller
             $data['Result'] = "Not Authorise to Access";
         }
         return json_encode($data);
+    }else{
+        $data['Result'] = "Not Authorise to Access Key";
+    }
     }
 }
