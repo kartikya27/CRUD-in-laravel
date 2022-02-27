@@ -20,7 +20,7 @@ class ApiLoginResponse extends Controller
         if(!empty($checkAuth)){
         
         $secretAuth = ApiProvider::where(['secret'=>$authSecret]);
-        if($checkAuth && $secretAuth)
+        if($checkAuth || $secretAuth)
         {
             $data['Status'] =true;       
             $data['users'] = User::all();
