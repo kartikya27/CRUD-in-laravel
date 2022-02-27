@@ -11,6 +11,8 @@ class ApiLoginResponse extends Controller
 {
     function index($auth)
     {   
+        $Auth['AuthKey'] =$_POST['key'];
+         $Auth['AuthSecret'] =$_POST['secret'];
         header('Content-Type:application/json');
         print_r($auth);
         $protectedData = [
