@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<x-head/>
+<x-Head/>
 
 <body>
-<x-header/>
+<x-Header/>
 <!-- {{Session::get('user')['name']}} -->
 <div class="container mt-4">
 <div class="row inbox-wrapper">
@@ -13,7 +13,7 @@
         <div class="card-body">
           <div class="row">
             
-          <x-sidenav currentPage="trash" />
+          <x-Sidenav currentPage="trash" />
 
             <div class="col-lg-9 email-content">
               
@@ -44,5 +44,5 @@
     </div>
   </div>
 </div>
-<x-composemail />
+<x-Composemail />
 </body>

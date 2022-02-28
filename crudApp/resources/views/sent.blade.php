@@ -4,7 +4,7 @@
 <x-head/>
 
 <body>
-<x-header/>
+<x-Header/>
 <!-- {{Session::get('user')['name']}} -->
 <div class="container mt-4">
 <div class="row inbox-wrapper">
@@ -15,7 +15,7 @@
             
   <!-- Side Navigation start here coming from sidenav X-components -->
     
-  <x-sidenav currentPage="sent"/>
+  <x-Sidenav currentPage="sent"/>
           
     <!-- Side Navigation end here coming from sidenav X-components -->
  
@@ -48,5 +48,5 @@
     </div>
   </div>
 </div>
-<x-composemail />
+<x-Composemail />
 </body>
