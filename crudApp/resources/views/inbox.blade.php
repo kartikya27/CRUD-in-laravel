@@ -6,7 +6,7 @@
 
 
 <body>
-    <x-header/>
+    <x-Header/>
 
 <!-- {{Session::get('user')['name']}} -->
 <div class="container mt-4">
@@ -17,7 +17,7 @@
           <div class="row">
             
            <!-- sidenav here  -->
-          <x-sidenav currentPage="inbox" />
+          <x-Sidenav currentPage="inbox" />
 
             <div class="col-lg-9 email-content">
               
@@ -48,5 +48,5 @@
     </div>
   </div>
 </div>
-<x-composemail />
+<x-Composemail />
 </body>
